@@ -1,0 +1,8 @@
+/* Read-only viewer: hide the annotation editing tools (comment, signature, highlight, text, draw, image). */
+#editorModeButtons,
+#editorModeSeparator,
+#editorUndoBar,
+.editorParamsToolbar,
+#editorCommentsSidebar {
+  display: none !important;
+}
