@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invisible Injury</title>
+<style>
+  :root { --bg: #f4f4f2; --fg: #1a1a1a; --bar: #ffffff; --line: #d8d8d4; --btn: #1a1a1a; --btn-fg: #ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161616; --fg: #ececec; --bar: #202020; --line: #333; --btn: #ececec; --btn-fg: #161616; }
+  }
+  html, body { height: 100%; margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  body { display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 12px 16px; background: var(--bar); border-bottom: 1px solid var(--line); }
+  h1 { font-size: 18px; margin: 0; font-weight: 600; }
+  .sub { font-size: 14px; opacity: .7; }
+  nav { display: flex; gap: 8px; }
+  a.btn { display: inline-block; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-size: 14px;
+    border: 1px solid var(--btn); color: var(--btn); }
+  a.btn.primary { background: var(--btn); color: var(--btn-fg); }
+  main { flex: 1; display: flex; }
+  iframe { flex: 1; border: 0; width: 100%; min-height: 70vh; }
+  .fallback { padding: 24px 16px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Invisible Injury</h1>
+    <div class="sub">Comic, 2013 · PDF, 3.4 MB</div>
+  </div>
+  <nav>
+    <a class="btn" href="invisible-injury-comic-2013.pdf" target="_blank" rel="noopener">Open full screen</a>
+    <a class="btn primary" href="invisible-injury-comic-2013.pdf" download="Invisible Injury Comic (2013).pdf">Download PDF</a>
+  </nav>
+</header>
+<main>
+  <iframe src="invisible-injury-comic-2013.pdf#view=FitH" title="Invisible Injury comic">
+  </iframe>
+</main>
+<noscript></noscript>
+<p class="fallback">If the comic does not appear above, use <a href="invisible-injury-comic-2013.pdf">Open full screen</a> or the download button.</p>
+</body>
+</html>
