@@ -49,6 +49,7 @@
     var btn = document.getElementById("shareLink");
     btn.addEventListener("click", function (e) {
       e.preventDefault();
+      if (window.goatcounter && goatcounter.count) goatcounter.count({ path: "share", title: "Share button", event: true });
       if (navigator.share) {
         navigator.share({ title: document.title, url: url }).catch(function () {});
       } else if (navigator.clipboard) {
@@ -62,5 +63,7 @@
     });
   })();
 </script>
+<script data-goatcounter="https://forestofthings.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

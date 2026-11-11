@@ -20,6 +20,9 @@
   function share() {
     var url = shareUrl();
     var title = document.title || "Invisible Injury";
+    if (window.goatcounter && goatcounter.count) {
+      goatcounter.count({ path: "share", title: "Share button", event: true });
+    }
     if (navigator.share) {
       navigator.share({ title: title, url: url }).catch(function () {});
     } else if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -35,4 +38,19 @@
     var btn = document.getElementById(id);
     if (btn) btn.addEventListener("click", share);
   });
+
+  // Analytics (GoatCounter). Only when the viewer is the top-level page, i.e. opened
+  // full screen. Embedded in invisible-injury.html, that page already counts the visit.
+  var topLevel = window.self === window.top;
+  var embedded = !topLevel;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", "https://forestofthings.goatcounter.com/count");
+  var settings = { no_onload: embedded };
+  if (topLevel) {
+    settings.path = new URL(shareUrl()).pathname + " (full screen)";
+  }
+  s.setAttribute("data-goatcounter-settings", JSON.stringify(settings));
+  document.head.appendChild(s);
 })();
