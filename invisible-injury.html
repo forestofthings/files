@@ -32,15 +32,35 @@
     <div class="sub">Comic, 2013 · PDF, 3.4 MB</div>
   </div>
   <nav>
-    <a class="btn" href="pdfjs/web/viewer.html?file=../../invisible-injury-comic-2013.pdf" target="_blank" rel="noopener">Open full screen</a>
+    <a class="btn" href="#" id="shareLink">Share</a>
+    <a class="btn" href="pdfjs/web/viewer.html?file=../../invisible-injury-comic-2013.pdf&share=../../invisible-injury.html" target="_blank" rel="noopener">Open full screen</a>
     <a class="btn primary" href="invisible-injury-comic-2013.pdf" download="Invisible Injury Comic (2013).pdf">Download PDF</a>
   </nav>
 </header>
 <main>
-  <iframe src="pdfjs/web/viewer.html?file=../../invisible-injury-comic-2013.pdf" title="Invisible Injury comic">
+  <iframe src="pdfjs/web/viewer.html?file=../../invisible-injury-comic-2013.pdf&share=../../invisible-injury.html" title="Invisible Injury comic">
   </iframe>
 </main>
 <noscript></noscript>
 <p class="fallback">If the comic does not appear above, use <a href="invisible-injury-comic-2013.pdf">Open full screen</a> or the download button.</p>
+<script>
+  (function () {
+    var url = location.origin + location.pathname;
+    var btn = document.getElementById("shareLink");
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (navigator.share) {
+        navigator.share({ title: document.title, url: url }).catch(function () {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          var old = btn.textContent; btn.textContent = "Link copied";
+          setTimeout(function () { btn.textContent = old; }, 2000);
+        }, function () { window.prompt("Copy this link:", url); });
+      } else {
+        window.prompt("Copy this link:", url);
+      }
+    });
+  })();
+</script>
 </body>
 </html>

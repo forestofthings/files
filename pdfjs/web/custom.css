@@ -1,8 +1,36 @@
-/* Read-only viewer: hide the annotation editing tools (comment, signature, highlight, text, draw, image). */
+/* Read-only viewer: hide the annotation editing tools and printing. */
 #editorModeButtons,
 #editorModeSeparator,
 #editorUndoBar,
 .editorParamsToolbar,
-#editorCommentsSidebar {
+#editorCommentsSidebar,
+#printButton,
+#secondaryPrint {
   display: none !important;
 }
+
+/* Share button, drawn like the other toolbar icons. */
+#shareButton::before,
+#secondaryShare::before {
+  -webkit-mask-image: url(images/toolbarButton-share.svg);
+          mask-image: url(images/toolbarButton-share.svg);
+}
+
+/* Brief confirmation after copying the link. */
+#shareToast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--toolbar-bg-color, #333);
+  color: var(--main-color, #fff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+  font: 13px system-ui, sans-serif;
+  opacity: 0;
+  transition: opacity .2s;
+  pointer-events: none;
+  z-index: 100000;
+}
+#shareToast.show { opacity: 1; }
