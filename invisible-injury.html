@@ -22,14 +22,17 @@
   a.btn.primary { background: var(--btn); color: var(--btn-fg); }
   main { flex: 1; display: flex; }
   iframe { flex: 1; border: 0; width: 100%; min-height: 70vh; }
-  .fallback { padding: 24px 16px; text-align: center; }
+  .about { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; }
+  .about h2 { font-size: 16px; margin: 24px 0 8px; }
+  .about p { margin: 0 0 12px; }
+  .fallback { font-size: 14px; opacity: .7; }
 </style>
 </head>
 <body>
 <header>
   <div>
     <h1>Invisible Injury</h1>
-    <div class="sub">Comic, 2013 · PDF, 3.4 MB</div>
+    <div class="sub">Written by Jeff Severns Guntzel · Illustrated by Andy Warner · 2013</div>
   </div>
   <nav>
     <a class="btn" href="#" id="shareLink">Share</a>
@@ -42,7 +45,11 @@
   </iframe>
 </main>
 <noscript></noscript>
-<p class="fallback">If the comic does not appear above, use <a href="invisible-injury-comic-2013.pdf">Open full screen</a> or the download button.</p>
+<section class="about">
+  <p class="fallback">If the comic does not appear above, use "Open full screen" or the download button.</p>
+  <h2>Credits</h2>
+  <p><em>Invisible Injury: Beyond PTSD.</em> Written by Jeff Severns Guntzel. Illustrated and laid out by Andy Warner. Reporting by Martha Bebinger, Samara Freemark and Jeff Severns Guntzel. Produced in 2013 by American Public Media's Public Insight Network, WBUR in Boston, and Symbolia.</p>
+</section>
 <script>
   (function () {
     var url = location.origin + location.pathname;
